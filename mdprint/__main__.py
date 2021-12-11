@@ -33,13 +33,21 @@ def print_markdown(text: str):
             l = l.replace(']', '')
             l = l.replace('(', '(' + Fore.BLUE)
             l = l.replace(')', Fore.RESET + ')')
-            out += l
+            out += l + "\n"
         elif re.match(r"\d\.", l) != None:
             l = re.split(r'(\s+)', l)
             l.insert(0, Fore.GREEN)
             l.insert(2, Fore.RESET)
             l = "".join(l)
             out += l + "\n"
+        elif l.startswith('##'):
+            l = l.replace('#', '')
+            l = l.strip()
+            out += Fore.MAGENTA + Style.BRIGHT + l + Style.RESET_ALL + "\n"
+        elif l.startswith('#'):
+            l = l.replace('#', '')
+            l = l.strip()
+            out += Fore.WHITE + Back.MAGENTA + l + Style.RESET_ALL + "\n"
         else:
             out += l + "\n"
     print(out)

@@ -1,3 +1,6 @@
+# Heading 1
+## Heading 2
+
 *italic*
 **bold**
 `some code`
