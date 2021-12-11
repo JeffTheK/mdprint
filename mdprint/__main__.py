@@ -22,6 +22,14 @@ def print_markdown(text: str):
             out += Style.BRIGHT + l + "\n" + Style.RESET_ALL
         elif l.startswith('*') and l.endswith('*'):
             out += Fore.YELLOW + l + "\n" + Fore.RESET
+        elif l.startswith('`') and l.endswith('`'):
+            out += Fore.CYAN + l + "\n" + Fore.RESET
+        elif '[' in l and ']' in l and '(' in l and ')' in l:
+            l = l.replace('[', '')
+            l = l.replace(']', '')
+            l = l.replace('(', '(' + Fore.BLUE)
+            l = l.replace(')', Fore.RESET + ')')
+            out += l
         else:
             out += l + "\n"
     print(out)
