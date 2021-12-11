@@ -20,10 +20,13 @@ def print_markdown(text: str):
     lines = text.splitlines()
     for l in lines:
         if l.startswith('**') and l.endswith('**'):
+            l = l.replace('**', '')
             out += Style.BRIGHT + l + "\n" + Style.RESET_ALL
         elif l.startswith('*') and l.endswith('*'):
+            l = l.replace('*', '')
             out += Fore.YELLOW + l + "\n" + Fore.RESET
         elif l.startswith('`') and l.endswith('`'):
+            l = l.replace('`', '')
             out += Fore.CYAN + l + "\n" + Fore.RESET
         elif '[' in l and ']' in l and '(' in l and ')' in l:
             l = l.replace('[', '')
