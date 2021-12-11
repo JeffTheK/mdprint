@@ -18,7 +18,11 @@ make install
 
 ## Usage
 
-Just run mdprint in terminal
+Just run mdprint in terminal with specified file
+
+```sh
+mdprint some_file.md
+```
 
 ## Building
 
