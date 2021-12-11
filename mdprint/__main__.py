@@ -1,5 +1,6 @@
 import click
 import os
+import re
 from colorama import Fore, Back, Style
 
 @click.command()
@@ -30,6 +31,12 @@ def print_markdown(text: str):
             l = l.replace('(', '(' + Fore.BLUE)
             l = l.replace(')', Fore.RESET + ')')
             out += l
+        elif re.match(r"\d\.", l) != None:
+            l = re.split(r'(\s+)', l)
+            l.insert(0, Fore.GREEN)
+            l.insert(2, Fore.RESET)
+            l = "".join(l)
+            out += l + "\n"
         else:
             out += l + "\n"
     print(out)
