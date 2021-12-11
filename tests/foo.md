@@ -4,6 +4,7 @@
 *italic*
 **bold**
 `some code`
+~~strikethrough~~
 [link](https://google.com)
 
 1. Do one thing
